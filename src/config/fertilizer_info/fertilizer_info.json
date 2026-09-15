@@ -1,0 +1,30 @@
+{
+  "Urea": {
+    "npk": "46-0-0",
+    "purpose": "High-nitrogen fertilizer used primarily to promote vegetative growth and healthy green leaves."
+  },
+  "DAP": {
+    "npk": "18-46-0",
+    "purpose": "Provides nitrogen and phosphorus to support early plant growth and root development."
+  },
+  "14-35-14": {
+    "npk": "14-35-14",
+    "purpose": "Phosphorus-rich fertilizer generally used to support root development and flowering."
+  },
+  "17-17-17": {
+    "npk": "17-17-17",
+    "purpose": "Balanced fertilizer supplying nitrogen, phosphorus, and potassium for general crop nutrition."
+  },
+  "20-20": {
+    "npk": "20-20-0",
+    "purpose": "Provides nitrogen and phosphorus to support crop growth and nutrient development."
+  },
+  "28-28": {
+    "npk": "28-28-0",
+    "purpose": "High-analysis nitrogen and phosphorus fertilizer used where both nutrients are needed."
+  },
+  "10-26-26": {
+    "npk": "10-26-26",
+    "purpose": "Phosphorus- and potassium-rich fertilizer used to support roots, flowering, and overall crop development."
+  }
+}

@@ -1,0 +1,1019 @@
+{
+  "schema_version": "1.0",
+  "system_name": "Disease-Aware Fertilizer Recommendation System",
+  "policy": {
+    "principle": "Disease detection does not by itself determine a fertilizer. Fertilizer recommendations must consider crop, soil/nutrient status, and validated disease-specific nutrient guidance.",
+    "disease_is_not_fertilizer_cure": true,
+    "use_soil_npk": true,
+    "avoid_blanket_application": true,
+    "require_crop_match": true,
+    "fallback_when_evidence_is_insufficient": "Use normal crop- and soil/NPK-based fertilizer recommendation without applying a disease-specific nutrient adjustment.",
+    "evidence_levels": [
+      "validated",
+      "limited",
+      "insufficient"
+    ]
+  },
+  "fertilizers": {
+    "Urea": {
+      "npk": "46-0-0",
+      "nitrogen": 46,
+      "phosphorous": 0,
+      "potassium": 0
+    },
+    "DAP": {
+      "npk": "18-46-0",
+      "nitrogen": 18,
+      "phosphorous": 46,
+      "potassium": 0
+    },
+    "14-35-14": {
+      "npk": "14-35-14",
+      "nitrogen": 14,
+      "phosphorous": 35,
+      "potassium": 14
+    },
+    "17-17-17": {
+      "npk": "17-17-17",
+      "nitrogen": 17,
+      "phosphorous": 17,
+      "potassium": 17
+    },
+    "20-20": {
+      "npk": "20-20-0",
+      "nitrogen": 20,
+      "phosphorous": 20,
+      "potassium": 0
+    },
+    "28-28": {
+      "npk": "28-28-0",
+      "nitrogen": 28,
+      "phosphorous": 28,
+      "potassium": 0
+    },
+    "10-26-26": {
+      "npk": "10-26-26",
+      "nitrogen": 10,
+      "phosphorous": 26,
+      "potassium": 26
+    }
+  },
+  "diseases": {
+    "Apple___Apple_scab": {
+      "crop": "Apple",
+      "disease": "Apple Scab",
+      "evidence_status": "insufficient",
+      "nutrient_guidance": {
+        "nitrogen": "normal_crop_management",
+        "phosphorous": "normal_crop_management",
+        "potassium": "normal_crop_management"
+      },
+      "fertilizer_strategy": {
+        "objective": "Do not make a disease-specific fertilizer adjustment.",
+        "priority": [
+          "Use soil and crop nutrient requirements",
+          "Avoid unnecessary fertilizer application"
+        ]
+      },
+      "recommendation_policy": {
+        "use_soil_npk": true,
+        "avoid_blanket_application": true,
+        "require_crop_match": true
+      },
+      "source": {
+        "evidence_status": "insufficient_for_disease_specific_fertilizer_rule"
+      }
+    },
+    "Apple___Black_rot": {
+      "crop": "Apple",
+      "disease": "Black Rot",
+      "evidence_status": "insufficient",
+      "nutrient_guidance": {
+        "nitrogen": "normal_crop_management",
+        "phosphorous": "normal_crop_management",
+        "potassium": "normal_crop_management"
+      },
+      "fertilizer_strategy": {
+        "objective": "Use normal apple nutrient management rather than prescribing fertilizer as disease treatment.",
+        "priority": [
+          "Use soil-based nutrient management",
+          "Avoid excessive application"
+        ]
+      },
+      "recommendation_policy": {
+        "use_soil_npk": true,
+        "avoid_blanket_application": true,
+        "require_crop_match": true
+      },
+      "source": {
+        "evidence_status": "insufficient_for_disease_specific_fertilizer_rule"
+      }
+    },
+    "Apple___Cedar_apple_rust": {
+      "crop": "Apple",
+      "disease": "Cedar Apple Rust",
+      "evidence_status": "insufficient",
+      "nutrient_guidance": {
+        "nitrogen": "normal_crop_management",
+        "phosphorous": "normal_crop_management",
+        "potassium": "normal_crop_management"
+      },
+      "fertilizer_strategy": {
+        "objective": "Use normal apple nutrient management.",
+        "priority": [
+          "Use soil-based nutrient management",
+          "Do not use fertilizer as a disease cure"
+        ]
+      },
+      "recommendation_policy": {
+        "use_soil_npk": true,
+        "avoid_blanket_application": true,
+        "require_crop_match": true
+      },
+      "source": {
+        "evidence_status": "insufficient_for_disease_specific_fertilizer_rule"
+      }
+    },
+    "Apple___healthy": {
+      "crop": "Apple",
+      "disease": "Healthy",
+      "evidence_status": "insufficient",
+      "nutrient_guidance": {
+        "nitrogen": "normal_crop_management",
+        "phosphorous": "normal_crop_management",
+        "potassium": "normal_crop_management"
+      },
+      "fertilizer_strategy": {
+        "objective": "Normal apple nutrient management.",
+        "priority": [
+          "Use soil and crop requirements"
+        ]
+      },
+      "recommendation_policy": {
+        "use_soil_npk": true,
+        "avoid_blanket_application": true,
+        "require_crop_match": true
+      },
+      "source": {
+        "evidence_status": "healthy_class_uses_normal_nutrient_management"
+      }
+    },
+    "Blueberry___healthy": {
+      "crop": "Blueberry",
+      "disease": "Healthy",
+      "evidence_status": "insufficient",
+      "nutrient_guidance": {
+        "nitrogen": "normal_crop_management",
+        "phosphorous": "normal_crop_management",
+        "potassium": "normal_crop_management"
+      },
+      "fertilizer_strategy": {
+        "objective": "Normal blueberry nutrient management.",
+        "priority": [
+          "Use crop and soil requirements"
+        ]
+      },
+      "recommendation_policy": {
+        "use_soil_npk": true,
+        "avoid_blanket_application": true,
+        "require_crop_match": true
+      },
+      "source": {
+        "evidence_status": "healthy_class_uses_normal_nutrient_management"
+      }
+    },
+    "Cherry_(including_sour)___Powdery_mildew": {
+      "crop": "Cherry",
+      "disease": "Powdery Mildew",
+      "evidence_status": "insufficient",
+      "nutrient_guidance": {
+        "nitrogen": "normal_crop_management",
+        "phosphorous": "normal_crop_management",
+        "potassium": "normal_crop_management"
+      },
+      "fertilizer_strategy": {
+        "objective": "Do not assign a disease-specific fertilizer.",
+        "priority": [
+          "Use normal crop nutrient management",
+          "Avoid excessive fertilization"
+        ]
+      },
+      "recommendation_policy": {
+        "use_soil_npk": true,
+        "avoid_blanket_application": true,
+        "require_crop_match": true
+      },
+      "source": {
+        "evidence_status": "insufficient_for_disease_specific_fertilizer_rule"
+      }
+    },
+    "Cherry_(including_sour)___healthy": {
+      "crop": "Cherry",
+      "disease": "Healthy",
+      "evidence_status": "insufficient",
+      "nutrient_guidance": {
+        "nitrogen": "normal_crop_management",
+        "phosphorous": "normal_crop_management",
+        "potassium": "normal_crop_management"
+      },
+      "fertilizer_strategy": {
+        "objective": "Normal cherry nutrient management.",
+        "priority": [
+          "Use crop and soil requirements"
+        ]
+      },
+      "recommendation_policy": {
+        "use_soil_npk": true,
+        "avoid_blanket_application": true,
+        "require_crop_match": true
+      },
+      "source": {
+        "evidence_status": "healthy_class_uses_normal_nutrient_management"
+      },
+      "class_name": "Cherry_(including_sour)___healthy"
+    },
+    "Corn_(maize)___Cercospora_leaf_spot Gray_leaf_spot": {
+      "crop": "Corn (Maize)",
+      "disease": "Cercospora Leaf Spot / Gray Leaf Spot",
+      "evidence_status": "insufficient",
+      "nutrient_guidance": {
+        "nitrogen": "normal_crop_management",
+        "phosphorous": "normal_crop_management",
+        "potassium": "normal_crop_management"
+      },
+      "fertilizer_strategy": {
+        "objective": "Do not make a disease-specific fertilizer adjustment.",
+        "priority": [
+          "Use normal corn nutrient management"
+        ]
+      },
+      "recommendation_policy": {
+        "use_soil_npk": true,
+        "avoid_blanket_application": true,
+        "require_crop_match": true
+      },
+      "source": {
+        "evidence_status": "insufficient_for_disease_specific_fertilizer_rule"
+      },
+      "class_name": "Corn_(maize)___Cercospora_leaf_spot Gray_leaf_spot"
+    },
+    "Corn_(maize)___Common_rust_": {
+      "crop": "Corn (Maize)",
+      "disease": "Common Rust",
+      "evidence_status": "insufficient",
+      "nutrient_guidance": {
+        "nitrogen": "normal_crop_management",
+        "phosphorous": "normal_crop_management",
+        "potassium": "normal_crop_management"
+      },
+      "fertilizer_strategy": {
+        "objective": "Use normal corn nutrient management.",
+        "priority": [
+          "Use soil-based nutrient management",
+          "Do not use fertilizer as a disease cure"
+        ]
+      },
+      "recommendation_policy": {
+        "use_soil_npk": true,
+        "avoid_blanket_application": true,
+        "require_crop_match": true
+      },
+      "source": {
+        "evidence_status": "insufficient_for_disease_specific_fertilizer_rule"
+      },
+      "class_name": "Corn_(maize)___Common_rust_"
+    },
+    "Corn_(maize)___Northern_Leaf_Blight": {
+      "crop": "Corn (Maize)",
+      "disease": "Northern Leaf Blight",
+      "evidence_status": "insufficient",
+      "nutrient_guidance": {
+        "nitrogen": "normal_crop_management",
+        "phosphorous": "normal_crop_management",
+        "potassium": "normal_crop_management"
+      },
+      "fertilizer_strategy": {
+        "objective": "Use normal corn nutrient management.",
+        "priority": [
+          "Use soil-based nutrient management",
+          "Do not use fertilizer as a disease cure"
+        ]
+      },
+      "recommendation_policy": {
+        "use_soil_npk": true,
+        "avoid_blanket_application": true,
+        "require_crop_match": true
+      },
+      "source": {
+        "evidence_status": "insufficient_for_disease_specific_fertilizer_rule"
+      },
+      "class_name": "Corn_(maize)___Northern_Leaf_Blight"
+    },
+    "Corn_(maize)___healthy": {
+      "crop": "Corn (Maize)",
+      "disease": "Healthy",
+      "evidence_status": "insufficient",
+      "nutrient_guidance": {
+        "nitrogen": "normal_crop_management",
+        "phosphorous": "normal_crop_management",
+        "potassium": "normal_crop_management"
+      },
+      "fertilizer_strategy": {
+        "objective": "Normal corn nutrient management.",
+        "priority": [
+          "Use crop and soil requirements"
+        ]
+      },
+      "recommendation_policy": {
+        "use_soil_npk": true,
+        "avoid_blanket_application": true,
+        "require_crop_match": true
+      },
+      "source": {
+        "evidence_status": "healthy_class_uses_normal_nutrient_management"
+      },
+      "class_name": "Corn_(maize)___healthy"
+    },
+    "Grape___Black_rot": {
+      "crop": "Grape",
+      "disease": "Black Rot",
+      "evidence_status": "insufficient",
+      "nutrient_guidance": {
+        "nitrogen": "normal_crop_management",
+        "phosphorous": "normal_crop_management",
+        "potassium": "normal_crop_management"
+      },
+      "fertilizer_strategy": {
+        "objective": "Normal grape nutrient management.",
+        "priority": [
+          "Use crop and soil requirements"
+        ]
+      },
+      "recommendation_policy": {
+        "use_soil_npk": true,
+        "avoid_blanket_application": true,
+        "require_crop_match": true
+      },
+      "source": {
+        "evidence_status": "insufficient_for_disease_specific_fertilizer_rule"
+      }
+    },
+    "Grape___Esca_(Black_Measles)": {
+      "crop": "Grape",
+      "disease": "Esca (Black Measles)",
+      "evidence_status": "insufficient",
+      "nutrient_guidance": {
+        "nitrogen": "normal_crop_management",
+        "phosphorous": "normal_crop_management",
+        "potassium": "normal_crop_management"
+      },
+      "fertilizer_strategy": {
+        "objective": "Normal grape nutrient management.",
+        "priority": [
+          "Use crop and soil requirements"
+        ]
+      },
+      "recommendation_policy": {
+        "use_soil_npk": true,
+        "avoid_blanket_application": true,
+        "require_crop_match": true
+      },
+      "source": {
+        "evidence_status": "insufficient_for_disease_specific_fertilizer_rule"
+      },
+      "class_name": "Grape___Esca_(Black_Measles)"
+    },
+    "Grape___Leaf_blight_(Isariopsis_Leaf_Spot)": {
+      "crop": "Grape",
+      "disease": "Leaf Blight (Isariopsis Leaf Spot)",
+      "evidence_status": "insufficient",
+      "nutrient_guidance": {
+        "nitrogen": "normal_crop_management",
+        "phosphorous": "normal_crop_management",
+        "potassium": "normal_crop_management"
+      },
+      "fertilizer_strategy": {
+        "objective": "Normal grape nutrient management.",
+        "priority": [
+          "Use crop and soil requirements"
+        ]
+      },
+      "recommendation_policy": {
+        "use_soil_npk": true,
+        "avoid_blanket_application": true,
+        "require_crop_match": true
+      },
+      "source": {
+        "evidence_status": "insufficient_for_disease_specific_fertilizer_rule"
+      },
+      "class_name": "Grape___Leaf_blight_(Isariopsis_Leaf_Spot)"
+    },
+    "Grape___healthy": {
+      "crop": "Grape",
+      "disease": "Healthy",
+      "evidence_status": "insufficient",
+      "nutrient_guidance": {
+        "nitrogen": "normal_crop_management",
+        "phosphorous": "normal_crop_management",
+        "potassium": "normal_crop_management"
+      },
+      "fertilizer_strategy": {
+        "objective": "Normal grape nutrient management.",
+        "priority": [
+          "Use crop and soil requirements"
+        ]
+      },
+      "recommendation_policy": {
+        "use_soil_npk": true,
+        "avoid_blanket_application": true,
+        "require_crop_match": true
+      },
+      "source": {
+        "evidence_status": "healthy_class_uses_normal_nutrient_management"
+      }
+    },
+    "Orange___Haunglongbing_(Citrus_greening)": {
+      "crop": "Orange",
+      "disease": "Huanglongbing (Citrus Greening)",
+      "evidence_status": "insufficient",
+      "nutrient_guidance": {
+        "nitrogen": "normal_crop_management",
+        "phosphorous": "normal_crop_management",
+        "potassium": "normal_crop_management"
+      },
+      "fertilizer_strategy": {
+        "objective": "Do not claim fertilizer cures Huanglongbing. Use normal citrus nutrient management.",
+        "priority": [
+          "Use soil and crop nutrient requirements",
+          "Do not use fertilizer as a disease cure"
+        ]
+      },
+      "recommendation_policy": {
+        "use_soil_npk": true,
+        "avoid_blanket_application": true,
+        "require_crop_match": true
+      },
+      "source": {
+        "evidence_status": "insufficient_for_disease_specific_fertilizer_rule"
+      },
+      "class_name": "Orange___Haunglongbing_(Citrus_greening)"
+    },
+    "Peach___Bacterial_spot": {
+      "crop": "Peach",
+      "disease": "Bacterial Spot",
+      "evidence_status": "insufficient",
+      "nutrient_guidance": {
+        "nitrogen": "normal_crop_management",
+        "phosphorous": "normal_crop_management",
+        "potassium": "normal_crop_management"
+      },
+      "fertilizer_strategy": {
+        "objective": "Normal peach nutrient management.",
+        "priority": [
+          "Use crop and soil requirements",
+          "Do not use fertilizer as a disease cure"
+        ]
+      },
+      "recommendation_policy": {
+        "use_soil_npk": true,
+        "avoid_blanket_application": true,
+        "require_crop_match": true
+      },
+      "source": {
+        "evidence_status": "insufficient_for_disease_specific_fertilizer_rule"
+      }
+    },
+    "Peach___healthy": {
+      "crop": "Peach",
+      "disease": "Healthy",
+      "evidence_status": "insufficient",
+      "nutrient_guidance": {
+        "nitrogen": "normal_crop_management",
+        "phosphorous": "normal_crop_management",
+        "potassium": "normal_crop_management"
+      },
+      "fertilizer_strategy": {
+        "objective": "Normal peach nutrient management.",
+        "priority": [
+          "Use crop and soil requirements"
+        ]
+      },
+      "recommendation_policy": {
+        "use_soil_npk": true,
+        "avoid_blanket_application": true,
+        "require_crop_match": true
+      },
+      "source": {
+        "evidence_status": "healthy_class_uses_normal_nutrient_management"
+      }
+    },
+    "Pepper,_bell___Bacterial_spot": {
+      "crop": "Bell Pepper",
+      "disease": "Bacterial Spot",
+      "evidence_status": "insufficient",
+      "nutrient_guidance": {
+        "nitrogen": "normal_crop_management",
+        "phosphorous": "normal_crop_management",
+        "potassium": "normal_crop_management"
+      },
+      "fertilizer_strategy": {
+        "objective": "Normal pepper nutrient management.",
+        "priority": [
+          "Use crop and soil requirements",
+          "Do not use fertilizer as a disease cure"
+        ]
+      },
+      "recommendation_policy": {
+        "use_soil_npk": true,
+        "avoid_blanket_application": true,
+        "require_crop_match": true
+      },
+      "source": {
+        "evidence_status": "insufficient_for_disease_specific_fertilizer_rule"
+      }
+    },
+    "Pepper,_bell___healthy": {
+      "crop": "Bell Pepper",
+      "disease": "Healthy",
+      "evidence_status": "insufficient",
+      "nutrient_guidance": {
+        "nitrogen": "normal_crop_management",
+        "phosphorous": "normal_crop_management",
+        "potassium": "normal_crop_management"
+      },
+      "fertilizer_strategy": {
+        "objective": "Normal bell pepper nutrient management.",
+        "priority": [
+          "Use crop and soil requirements"
+        ]
+      },
+      "recommendation_policy": {
+        "use_soil_npk": true,
+        "avoid_blanket_application": true,
+        "require_crop_match": true
+      },
+      "source": {
+        "evidence_status": "healthy_class_uses_normal_nutrient_management"
+      }
+    },
+    "Potato___Early_blight": {
+      "crop": "Potato",
+      "disease": "Early Blight",
+      "evidence_status": "limited",
+      "nutrient_guidance": {
+        "nitrogen": "normal_crop_management",
+        "phosphorous": "normal_crop_management",
+        "potassium": "normal_crop_management"
+      },
+      "fertilizer_strategy": {
+        "objective": "Use potato nutrient management based on soil and crop requirements; do not assign a disease-specific fertilizer.",
+        "priority": [
+          "Use soil testing",
+          "Meet crop NPK requirements",
+          "Avoid excessive nutrient application"
+        ]
+      },
+      "recommendation_policy": {
+        "use_soil_npk": true,
+        "avoid_blanket_application": true,
+        "require_crop_match": true
+      },
+      "source": {
+        "evidence_status": "crop_nutrient_guidance_available_but_no_specific_early_blight_fertilizer_rule"
+      }
+    },
+    "Potato___Late_blight": {
+      "crop": "Potato",
+      "disease": "Late Blight",
+      "evidence_status": "insufficient",
+      "nutrient_guidance": {
+        "nitrogen": "normal_crop_management",
+        "phosphorous": "normal_crop_management",
+        "potassium": "normal_crop_management"
+      },
+      "fertilizer_strategy": {
+        "objective": "Normal potato nutrient management.",
+        "priority": [
+          "Use soil testing",
+          "Meet crop NPK requirements",
+          "Do not use fertilizer as a disease cure"
+        ]
+      },
+      "recommendation_policy": {
+        "use_soil_npk": true,
+        "avoid_blanket_application": true,
+        "require_crop_match": true
+      },
+      "source": {
+        "evidence_status": "insufficient_for_disease_specific_fertilizer_rule"
+      }
+    },
+    "Potato___healthy": {
+      "crop": "Potato",
+      "disease": "Healthy",
+      "evidence_status": "insufficient",
+      "nutrient_guidance": {
+        "nitrogen": "normal_crop_management",
+        "phosphorous": "normal_crop_management",
+        "potassium": "normal_crop_management"
+      },
+      "fertilizer_strategy": {
+        "objective": "Normal potato nutrient management.",
+        "priority": [
+          "Use soil testing",
+          "Meet crop NPK requirements"
+        ]
+      },
+      "recommendation_policy": {
+        "use_soil_npk": true,
+        "avoid_blanket_application": true,
+        "require_crop_match": true
+      },
+      "source": {
+        "evidence_status": "healthy_class_uses_normal_nutrient_management"
+      }
+    },
+    "Raspberry___healthy": {
+      "crop": "Raspberry",
+      "disease": "Healthy",
+      "evidence_status": "insufficient",
+      "nutrient_guidance": {
+        "nitrogen": "normal_crop_management",
+        "phosphorous": "normal_crop_management",
+        "potassium": "normal_crop_management"
+      },
+      "fertilizer_strategy": {
+        "objective": "Normal raspberry nutrient management.",
+        "priority": [
+          "Use crop and soil requirements"
+        ]
+      },
+      "recommendation_policy": {
+        "use_soil_npk": true,
+        "avoid_blanket_application": true,
+        "require_crop_match": true
+      },
+      "source": {
+        "evidence_status": "healthy_class_uses_normal_nutrient_management"
+      }
+    },
+    "Soybean___healthy": {
+      "crop": "Soybean",
+      "disease": "Healthy",
+      "evidence_status": "insufficient",
+      "nutrient_guidance": {
+        "nitrogen": "normal_crop_management",
+        "phosphorous": "normal_crop_management",
+        "potassium": "normal_crop_management"
+      },
+      "fertilizer_strategy": {
+        "objective": "Normal soybean nutrient management.",
+        "priority": [
+          "Use crop and soil requirements"
+        ]
+      },
+      "recommendation_policy": {
+        "use_soil_npk": true,
+        "avoid_blanket_application": true,
+        "require_crop_match": true
+      },
+      "source": {
+        "evidence_status": "healthy_class_uses_normal_nutrient_management"
+      }
+    },
+    "Squash___Powdery_mildew": {
+      "crop": "Squash",
+      "disease": "Powdery Mildew",
+      "evidence_status": "limited",
+      "nutrient_guidance": {
+        "nitrogen": "avoid_excess",
+        "phosphorous": "normal_crop_management",
+        "potassium": "normal_crop_management"
+      },
+      "fertilizer_strategy": {
+        "objective": "Apply fertilizer according to soil test results and avoid excessive nitrogen.",
+        "priority": [
+          "Use soil-test-based fertilizer management",
+          "Avoid excessive nitrogen",
+          "Do not claim fertilizer cures powdery mildew"
+        ]
+      },
+      "recommendation_policy": {
+        "use_soil_npk": true,
+        "avoid_blanket_application": true,
+        "require_crop_match": true
+      },
+      "source": {
+        "organization": "University of Minnesota Extension",
+        "reference": "Powdery mildew of cucurbits",
+        "url": "https://extension.umn.edu/agriculture/specialty-crops/vegetable-farming/disease-management/powdery-mildew-of-cucurbits"
+      }
+    },
+    "Strawberry___Leaf_scorch": {
+      "crop": "Strawberry",
+      "disease": "Leaf Scorch",
+      "evidence_status": "insufficient",
+      "nutrient_guidance": {
+        "nitrogen": "normal_crop_management",
+        "phosphorous": "normal_crop_management",
+        "potassium": "normal_crop_management"
+      },
+      "fertilizer_strategy": {
+        "objective": "Normal strawberry nutrient management.",
+        "priority": [
+          "Use soil and crop requirements",
+          "Avoid unnecessary fertilizer application"
+        ]
+      },
+      "recommendation_policy": {
+        "use_soil_npk": true,
+        "avoid_blanket_application": true,
+        "require_crop_match": true
+      },
+      "source": {
+        "evidence_status": "insufficient_for_disease_specific_fertilizer_rule"
+      }
+    },
+    "Strawberry___healthy": {
+      "crop": "Strawberry",
+      "disease": "Healthy",
+      "evidence_status": "insufficient",
+      "nutrient_guidance": {
+        "nitrogen": "normal_crop_management",
+        "phosphorous": "normal_crop_management",
+        "potassium": "normal_crop_management"
+      },
+      "fertilizer_strategy": {
+        "objective": "Normal strawberry nutrient management.",
+        "priority": [
+          "Use soil and crop requirements"
+        ]
+      },
+      "recommendation_policy": {
+        "use_soil_npk": true,
+        "avoid_blanket_application": true,
+        "require_crop_match": true
+      },
+      "source": {
+        "evidence_status": "healthy_class_uses_normal_nutrient_management"
+      }
+    },
+    "Tomato___Bacterial_spot": {
+      "crop": "Tomato",
+      "disease": "Bacterial Spot",
+      "evidence_status": "insufficient",
+      "nutrient_guidance": {
+        "nitrogen": "normal_crop_management",
+        "phosphorous": "normal_crop_management",
+        "potassium": "normal_crop_management"
+      },
+      "fertilizer_strategy": {
+        "objective": "Use normal tomato nutrient management; do not use fertilizer as a bacterial spot treatment.",
+        "priority": [
+          "Use soil-based nutrient management",
+          "Avoid excessive fertilizer application"
+        ]
+      },
+      "recommendation_policy": {
+        "use_soil_npk": true,
+        "avoid_blanket_application": true,
+        "require_crop_match": true
+      },
+      "source": {
+        "evidence_status": "insufficient_for_disease_specific_fertilizer_rule"
+      }
+    },
+    "Tomato___Early_blight": {
+      "crop": "Tomato",
+      "disease": "Early Blight",
+      "evidence_status": "validated",
+      "nutrient_guidance": {
+        "nitrogen": "adequate",
+        "phosphorous": "adequate",
+        "potassium": "avoid_excess"
+      },
+      "fertilizer_strategy": {
+        "objective": "Maintain adequate nitrogen and phosphorus while avoiding excessive potassium.",
+        "priority": [
+          "Maintain adequate nitrogen",
+          "Maintain adequate phosphorous",
+          "Avoid excessive potassium",
+          "Use soil and crop information when selecting fertilizer"
+        ]
+      },
+      "recommendation_policy": {
+        "use_soil_npk": true,
+        "avoid_blanket_application": true,
+        "require_crop_match": true
+      },
+      "source": {
+        "organization": "University of Minnesota Extension",
+        "reference": "Early blight in tomato and potato",
+        "url": "https://extension.umn.edu/agriculture/specialty-crops/vegetable-farming/disease-management/early-blight-in-tomato-and-potato"
+      }
+    },
+    "Tomato___Late_blight": {
+      "crop": "Tomato",
+      "disease": "Late Blight",
+      "evidence_status": "insufficient",
+      "nutrient_guidance": {
+        "nitrogen": "normal_crop_management",
+        "phosphorous": "normal_crop_management",
+        "potassium": "normal_crop_management"
+      },
+      "fertilizer_strategy": {
+        "objective": "Normal tomato nutrient management; do not use fertilizer as a late blight cure.",
+        "priority": [
+          "Use soil and crop requirements",
+          "Avoid blanket fertilizer application"
+        ]
+      },
+      "recommendation_policy": {
+        "use_soil_npk": true,
+        "avoid_blanket_application": true,
+        "require_crop_match": true
+      },
+      "source": {
+        "evidence_status": "insufficient_for_disease_specific_fertilizer_rule"
+      }
+    },
+    "Tomato___Leaf_Mold": {
+      "crop": "Tomato",
+      "disease": "Leaf Mold",
+      "evidence_status": "insufficient",
+      "nutrient_guidance": {
+        "nitrogen": "normal_crop_management",
+        "phosphorous": "normal_crop_management",
+        "potassium": "normal_crop_management"
+      },
+      "fertilizer_strategy": {
+        "objective": "Normal tomato nutrient management.",
+        "priority": [
+          "Use soil and crop requirements",
+          "Do not use fertilizer as a disease cure"
+        ]
+      },
+      "recommendation_policy": {
+        "use_soil_npk": true,
+        "avoid_blanket_application": true,
+        "require_crop_match": true
+      },
+      "source": {
+        "evidence_status": "insufficient_for_disease_specific_fertilizer_rule"
+      }
+    },
+    "Tomato___Septoria_leaf_spot": {
+      "crop": "Tomato",
+      "disease": "Septoria Leaf Spot",
+      "evidence_status": "insufficient",
+      "nutrient_guidance": {
+        "nitrogen": "normal_crop_management",
+        "phosphorous": "normal_crop_management",
+        "potassium": "normal_crop_management"
+      },
+      "fertilizer_strategy": {
+        "objective": "Normal tomato nutrient management.",
+        "priority": [
+          "Use soil and crop requirements",
+          "Do not use fertilizer as a disease cure"
+        ]
+      },
+      "recommendation_policy": {
+        "use_soil_npk": true,
+        "avoid_blanket_application": true,
+        "require_crop_match": true
+      },
+      "source": {
+        "evidence_status": "insufficient_for_disease_specific_fertilizer_rule"
+      }
+    },
+    "Tomato___Spider_mites Two-spotted_spider_mite": {
+      "crop": "Tomato",
+      "disease": "Two-Spotted Spider Mite",
+      "evidence_status": "insufficient",
+      "nutrient_guidance": {
+        "nitrogen": "normal_crop_management",
+        "phosphorous": "normal_crop_management",
+        "potassium": "normal_crop_management"
+      },
+      "fertilizer_strategy": {
+        "objective": "Normal tomato nutrient management; fertilizer is not a direct treatment for spider mites.",
+        "priority": [
+          "Use soil and crop requirements",
+          "Do not use fertilizer as pest treatment"
+        ]
+      },
+      "recommendation_policy": {
+        "use_soil_npk": true,
+        "avoid_blanket_application": true,
+        "require_crop_match": true
+      },
+      "source": {
+        "evidence_status": "insufficient_for_disease_specific_fertilizer_rule"
+      }
+    },
+    "Tomato___Target_Spot": {
+      "crop": "Tomato",
+      "disease": "Target Spot",
+      "evidence_status": "insufficient",
+      "nutrient_guidance": {
+        "nitrogen": "normal_crop_management",
+        "phosphorous": "normal_crop_management",
+        "potassium": "normal_crop_management"
+      },
+      "fertilizer_strategy": {
+        "objective": "Normal tomato nutrient management.",
+        "priority": [
+          "Use soil and crop requirements",
+          "Do not use fertilizer as a disease cure"
+        ]
+      },
+      "recommendation_policy": {
+        "use_soil_npk": true,
+        "avoid_blanket_application": true,
+        "require_crop_match": true
+      },
+      "source": {
+        "evidence_status": "insufficient_for_disease_specific_fertilizer_rule"
+      }
+    },
+    "Tomato___Tomato_Yellow_Leaf_Curl_Virus": {
+      "crop": "Tomato",
+      "disease": "Tomato Yellow Leaf Curl Virus",
+      "evidence_status": "insufficient",
+      "nutrient_guidance": {
+        "nitrogen": "normal_crop_management",
+        "phosphorous": "normal_crop_management",
+        "potassium": "normal_crop_management"
+      },
+      "fertilizer_strategy": {
+        "objective": "Do not claim fertilizer cures a viral disease. Use normal tomato nutrient management.",
+        "priority": [
+          "Use soil and crop requirements",
+          "Do not use fertilizer as a viral disease cure"
+        ]
+      },
+      "recommendation_policy": {
+        "use_soil_npk": true,
+        "avoid_blanket_application": true,
+        "require_crop_match": true
+      },
+      "source": {
+        "evidence_status": "insufficient_for_disease_specific_fertilizer_rule"
+      }
+    },
+    "Tomato___Tomato_mosaic_virus": {
+      "crop": "Tomato",
+      "disease": "Tomato Mosaic Virus",
+      "evidence_status": "insufficient",
+      "nutrient_guidance": {
+        "nitrogen": "normal_crop_management",
+        "phosphorous": "normal_crop_management",
+        "potassium": "normal_crop_management"
+      },
+      "fertilizer_strategy": {
+        "objective": "Do not claim fertilizer cures a viral disease. Use normal tomato nutrient management.",
+        "priority": [
+          "Use soil and crop requirements",
+          "Do not use fertilizer as a viral disease cure"
+        ]
+      },
+      "recommendation_policy": {
+        "use_soil_npk": true,
+        "avoid_blanket_application": true,
+        "require_crop_match": true
+      },
+      "source": {
+        "evidence_status": "insufficient_for_disease_specific_fertilizer_rule"
+      }
+    },
+    "Tomato___healthy": {
+      "crop": "Tomato",
+      "disease": "Healthy",
+      "evidence_status": "insufficient",
+      "nutrient_guidance": {
+        "nitrogen": "normal_crop_management",
+        "phosphorous": "normal_crop_management",
+        "potassium": "normal_crop_management"
+      },
+      "fertilizer_strategy": {
+        "objective": "Normal tomato nutrient management based on soil and crop requirements.",
+        "priority": [
+          "Use soil testing",
+          "Apply nutrients according to crop requirements",
+          "Avoid excessive nitrogen and unnecessary phosphorus"
+        ]
+      },
+      "recommendation_policy": {
+        "use_soil_npk": true,
+        "avoid_blanket_application": true,
+        "require_crop_match": true
+      },
+      "source": {
+        "organization": "University of Minnesota Extension",
+        "reference": "Growing tomatoes in home gardens",
+        "url": "https://extension.umn.edu/garden-and-home/yard-and-garden/gardening-in-minnesota/growing-tomatoes"
+      }
+    }
+  }
+}

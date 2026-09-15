@@ -1,0 +1,755 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+:root {
+    --primary: #2e7d32;
+    --primary-dark: #1b5e20;
+    --primary-light: #e8f5e9;
+    --background: #f5f8f5;
+    --card: #ffffff;
+    --text: #1f2937;
+    --muted: #6b7280;
+    --border: #d9e2d9;
+    --danger: #c62828;
+    --shadow: 0 8px 30px rgba(0, 0, 0, 0.07);
+}
+
+body {
+    font-family:
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        Roboto,
+        Arial,
+        sans-serif;
+
+    background: var(--background);
+    color: var(--text);
+    line-height: 1.6;
+}
+
+.container {
+    width: min(1180px, 92%);
+    margin: 0 auto;
+}
+
+
+/* ============================================================
+   HEADER
+   ============================================================ */
+
+.header {
+    background: linear-gradient(
+        135deg,
+        var(--primary-dark),
+        var(--primary)
+    );
+
+    color: white;
+    padding: 42px 0;
+}
+
+.logo {
+    font-size: 2rem;
+    font-weight: 800;
+    letter-spacing: -0.5px;
+}
+
+.subtitle {
+    margin-top: 8px;
+    opacity: 0.9;
+    font-size: 1rem;
+}
+
+
+/* ============================================================
+   MAIN
+   ============================================================ */
+
+.main-content {
+    padding: 40px 0 60px;
+}
+
+
+/* ============================================================
+   CARD
+   ============================================================ */
+
+.card {
+    background: var(--card);
+    border-radius: 18px;
+    padding: 30px;
+    margin-bottom: 28px;
+    box-shadow: var(--shadow);
+    border: 1px solid var(--border);
+}
+
+.section-header {
+    margin-bottom: 28px;
+}
+
+.section-header h2 {
+    font-size: 1.55rem;
+    margin-bottom: 6px;
+}
+
+.section-header p {
+    color: var(--muted);
+}
+
+
+/* ============================================================
+   DISEASE SECTION
+   ============================================================ */
+
+.disease-layout {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 28px;
+}
+
+.upload-panel,
+.result-panel {
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 24px;
+}
+
+.upload-area {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    min-height: 270px;
+
+    border: 2px dashed #a8c7aa;
+    border-radius: 14px;
+
+    background: #fafdf9;
+
+    cursor: pointer;
+
+    text-align: center;
+
+    transition:
+        border-color 0.2s ease,
+        background 0.2s ease,
+        transform 0.2s ease;
+}
+
+.upload-area:hover {
+    border-color: var(--primary);
+    background: var(--primary-light);
+    transform: translateY(-1px);
+}
+
+.upload-icon {
+    font-size: 3rem;
+    margin-bottom: 10px;
+}
+
+.upload-area h3 {
+    font-size: 1.15rem;
+    margin-bottom: 5px;
+}
+
+.upload-area p {
+    color: var(--muted);
+}
+
+.upload-area span {
+    margin-top: 5px;
+    color: #8a948b;
+    font-size: 0.85rem;
+}
+
+
+/* ============================================================
+   IMAGE PREVIEW
+   ============================================================ */
+
+.image-preview-container {
+    margin-top: 18px;
+    text-align: center;
+}
+
+.image-preview-container img {
+    display: block;
+
+    width: 100%;
+    max-height: 300px;
+
+    object-fit: contain;
+
+    border-radius: 12px;
+    border: 1px solid var(--border);
+
+    margin-bottom: 14px;
+}
+
+
+/* ============================================================
+   BUTTONS
+   ============================================================ */
+
+.primary-button,
+.secondary-button {
+    width: 100%;
+
+    border: none;
+    border-radius: 10px;
+
+    padding: 13px 18px;
+
+    font-size: 1rem;
+    font-weight: 700;
+
+    cursor: pointer;
+
+    transition:
+        background 0.2s ease,
+        transform 0.2s ease,
+        opacity 0.2s ease;
+}
+
+.primary-button {
+    background: var(--primary);
+    color: white;
+
+    margin-top: 18px;
+}
+
+.primary-button:hover:not(:disabled) {
+    background: var(--primary-dark);
+    transform: translateY(-1px);
+}
+
+.primary-button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.secondary-button {
+    background: #edf1ed;
+    color: var(--text);
+}
+
+.secondary-button:hover {
+    background: #e1e7e1;
+}
+
+.fertilizer-button {
+    max-width: 320px;
+}
+
+
+/* ============================================================
+   RESULT PANEL
+   ============================================================ */
+
+.result-panel {
+    min-height: 400px;
+}
+
+.placeholder {
+    min-height: 350px;
+
+    display: flex;
+    flex-direction: column;
+
+    align-items: center;
+    justify-content: center;
+
+    text-align: center;
+}
+
+.placeholder-icon {
+    font-size: 3.5rem;
+    margin-bottom: 12px;
+}
+
+.placeholder h3 {
+    margin-bottom: 6px;
+}
+
+.placeholder p {
+    color: var(--muted);
+    max-width: 360px;
+}
+
+
+/* ============================================================
+   PREDICTION
+   ============================================================ */
+
+.prediction {
+    background: var(--primary-light);
+    color: var(--primary-dark);
+
+    border-radius: 12px;
+
+    padding: 18px;
+
+    margin: 12px 0 22px;
+
+    font-size: 1.15rem;
+    font-weight: 800;
+
+    word-break: break-word;
+}
+
+.confidence-container {
+    margin-bottom: 26px;
+}
+
+.confidence-header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 8px;
+}
+
+.confidence-header strong {
+    color: var(--primary);
+}
+
+.progress-bar {
+    height: 10px;
+
+    background: #e5ebe5;
+
+    border-radius: 999px;
+
+    overflow: hidden;
+}
+
+.progress {
+    height: 100%;
+
+    width: 0%;
+
+    background: var(--primary);
+
+    border-radius: inherit;
+
+    transition: width 0.5s ease;
+}
+
+.probability-title {
+    margin-bottom: 12px;
+}
+
+
+/* ============================================================
+   PROBABILITY LIST
+   ============================================================ */
+
+.probability-list {
+    max-height: 260px;
+    overflow-y: auto;
+}
+
+.probability-item {
+    margin-bottom: 12px;
+}
+
+.probability-item:last-child {
+    margin-bottom: 0;
+}
+
+.probability-header {
+    display: flex;
+    justify-content: space-between;
+    gap: 15px;
+
+    font-size: 0.88rem;
+
+    margin-bottom: 5px;
+}
+
+.probability-class {
+    word-break: break-word;
+}
+
+.probability-value {
+    font-weight: 700;
+    white-space: nowrap;
+}
+
+.probability-bar {
+    height: 7px;
+
+    background: #edf1ed;
+
+    border-radius: 999px;
+
+    overflow: hidden;
+}
+
+.probability-fill {
+    height: 100%;
+
+    background: var(--primary);
+
+    border-radius: inherit;
+}
+
+
+/* ============================================================
+   FORMS
+   ============================================================ */
+
+.form-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(2, minmax(0, 1fr));
+
+    gap: 20px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group label {
+    font-weight: 700;
+    margin-bottom: 7px;
+}
+
+.form-group input,
+.form-group select {
+    width: 100%;
+
+    padding: 12px 13px;
+
+    border: 1px solid var(--border);
+    border-radius: 9px;
+
+    background: white;
+
+    color: var(--text);
+
+    font-size: 0.97rem;
+
+    outline: none;
+
+    transition:
+        border-color 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+.form-group input:focus,
+.form-group select:focus {
+    border-color: var(--primary);
+
+    box-shadow:
+        0 0 0 3px
+        rgba(46, 125, 50, 0.12);
+}
+
+
+/* ============================================================
+   FERTILIZER RESULT
+   ============================================================ */
+
+.fertilizer-result {
+    margin-top: 28px;
+
+    padding: 24px;
+
+    border-radius: 14px;
+
+    background: var(--primary-light);
+
+    border: 1px solid #c9dfca;
+
+    text-align: center;
+}
+
+.fertilizer-result span {
+    display: block;
+
+    color: var(--muted);
+
+    margin-bottom: 6px;
+}
+
+.fertilizer-result strong {
+    display: block;
+
+    color: var(--primary-dark);
+
+    font-size: 1.7rem;
+}
+
+
+/* ============================================================
+   LOADING
+   ============================================================ */
+
+.loading {
+    min-height: 180px;
+
+    display: flex;
+    flex-direction: column;
+
+    align-items: center;
+    justify-content: center;
+
+    text-align: center;
+
+    color: var(--muted);
+}
+
+.spinner {
+    width: 38px;
+    height: 38px;
+
+    border: 4px solid #dce7dc;
+    border-top-color: var(--primary);
+
+    border-radius: 50%;
+
+    animation: spin 0.8s linear infinite;
+
+    margin-bottom: 12px;
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+
+/* ============================================================
+   ERROR
+   ============================================================ */
+
+.error-message {
+    margin-top: 18px;
+
+    padding: 13px 15px;
+
+    background: #ffebee;
+
+    color: var(--danger);
+
+    border: 1px solid #ffcdd2;
+
+    border-radius: 9px;
+
+    font-size: 0.93rem;
+}
+
+
+/* ============================================================
+   DISCLAIMER
+   ============================================================ */
+
+.disclaimer {
+    padding: 20px 24px;
+
+    border-radius: 14px;
+
+    background: #fff8e1;
+
+    border: 1px solid #f0dfab;
+
+    color: #66551e;
+}
+
+.disclaimer strong {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.disclaimer p {
+    font-size: 0.92rem;
+}
+
+
+/* ============================================================
+   FOOTER
+   ============================================================ */
+
+.footer {
+    text-align: center;
+
+    padding: 28px 20px;
+
+    color: var(--muted);
+
+    font-size: 0.9rem;
+
+    border-top: 1px solid var(--border);
+
+    background: white;
+}
+
+
+/* ============================================================
+   UTILITY
+   ============================================================ */
+
+.hidden {
+    display: none !important;
+}
+
+
+/* ============================================================
+   RESPONSIVE DESIGN
+   ============================================================ */
+
+@media (max-width: 850px) {
+
+    .disease-layout {
+        grid-template-columns: 1fr;
+    }
+
+    .form-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .card {
+        padding: 22px;
+    }
+
+    .logo {
+        font-size: 1.65rem;
+    }
+}
+
+
+@media (max-width: 500px) {
+
+    .container {
+        width: 94%;
+    }
+
+    .header {
+        padding: 30px 0;
+    }
+
+    .main-content {
+        padding-top: 25px;
+    }
+
+    .card {
+        padding: 16px;
+        border-radius: 14px;
+    }
+
+    .upload-panel,
+    .result-panel {
+        padding: 16px;
+    }
+
+    .section-header h2 {
+        font-size: 1.3rem;
+    }
+}
+/* Disease information result card */
+
+.disease-info {
+    margin-top: 24px;
+    padding: 24px;
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    background: #fafdf9;
+}
+
+.info-section {
+    padding: 18px 0;
+    border-bottom: 1px solid var(--border);
+}
+
+.info-section:first-child {
+    padding-top: 0;
+}
+
+.info-section:last-child {
+    padding-bottom: 0;
+    border-bottom: none;
+}
+
+.info-section h3 {
+    margin: 0 0 8px;
+    font-size: 1.05rem;
+    font-weight: 700;
+}
+
+.info-section p {
+    margin: 0;
+    line-height: 1.7;
+}
+
+.info-section ul {
+    margin: 8px 0 0;
+    padding-left: 22px;
+}
+
+.info-section li {
+    margin-bottom: 6px;
+    line-height: 1.6;
+}
+
+.info-section li:last-child {
+    margin-bottom: 0;
+}
+
+
+/* Fertilizer recommendation result card */
+
+.fertilizer-result {
+    margin-top: 24px;
+    padding: 24px;
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    background: #fafdf9;
+    text-align: center;
+}
+
+.fertilizer-result .result-label {
+    display: block;
+    margin-bottom: 10px;
+    font-size: 0.95rem;
+    font-weight: 600;
+}
+
+.fertilizer-result h2 {
+    margin: 0;
+    font-size: 1.8rem;
+    line-height: 1.3;
+}
+
+/* Fertilizer recommendation details */
+
+.fertilizer-details {
+    margin-top: 24px;
+    display: grid;
+    gap: 16px;
+    text-align: left;
+}
+
+.fertilizer-detail {
+    padding: 16px;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    background: #ffffff;
+}
+
+.fertilizer-detail .result-label {
+    margin-bottom: 6px;
+}
+
+.fertilizer-detail p {
+    margin: 0;
+    line-height: 1.6;
+}
+
